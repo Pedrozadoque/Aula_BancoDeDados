@@ -13,3 +13,12 @@ CREATE TABLE Clientes (
     DataCadastro DATETIME DEFAULT GETDATE(),
     Ativo BIT DEFAULT 1
 );
+
+-- 3. Criar Tabela de Pedidos
+CREATE TABLE Pedidos (
+    PedidoID INT IDENTTITY(1,1) PRIMARY KEY,
+    ClienteID INT NOT NULL,
+    DataPedido DATETIME DEFAULT GETDATE(),
+    ValorTotal DECIMAL(10,2) CHECK (ValorTotal >= 0),
+    CONSTRAINT FK_Pedidos_Clientes FOREIGN KEY (ClienteID) REFERENCES Clientes(ClienteID)
+);
