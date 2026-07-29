@@ -16,7 +16,7 @@ CREATE TABLE Clientes (
 
 -- 3. Criar Tabela de Pedidos
 CREATE TABLE Pedidos (
-    PedidoID INT IDENTTITY(1,1) PRIMARY KEY,
+    PedidoID INT IDENTITY(1,1) PRIMARY KEY,
     ClienteID INT NOT NULL,
     DataPedido DATETIME DEFAULT GETDATE(),
     ValorTotal DECIMAL(10,2) CHECK (ValorTotal >= 0),
