@@ -42,3 +42,4 @@ FROM Produtos;
 SELECT *
 FROM Produtos
 WHERE Preco > 100.00;
+
