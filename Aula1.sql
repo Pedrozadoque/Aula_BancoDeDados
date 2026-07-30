@@ -1,24 +1,21 @@
--- 1. Criar o Banco de Dados
-CREATE DATABASE CursoPraticoDB;
-GO
-
 USE CursoPraticoDB;
 GO
 
--- 2. Cria Tabela de Clientes
-CREATE TABLE Clientes (
-    ClienteID INT IDENTITY(1,1) PRIMARY KEY,
-    Nome VARCHAR(100) NOT NULL,
-    Email VARCHAR(100) UNIQUE,
-    DataCadastro DATETIME DEFAULT GETDATE(),
-    Ativo BIT DEFAULT 1
+-- 1. Tabela de Catecorias
+CREATE TABLE Categorias (
+    CategoriaID INT IDENTITY(1, 1) PRIMARY KEY,
+    NomeCategoria VARCHAR(50) NOT NULL
 );
+GO
 
--- 3. Criar Tabela de Pedidos
-CREATE TABLE Pedidos (
-    PedidoID INT IDENTITY(1,1) PRIMARY KEY,
-    ClienteID INT NOT NULL,
-    DataPedido DATETIME DEFAULT GETDATE(),
-    ValorTotal DECIMAL(10,2) CHECK (ValorTotal >= 0),
-    CONSTRAINT FK_Pedidos_Clientes FOREIGN KEY (ClienteID) REFERENCES Clientes(ClienteID)
+-- 2. Tabela de Produtos(com FK referenciado Categoria)
+CREATE TABLE Produtos (
+    ProdutoID INT IDENTITY(1, 1) PRIMARY KEY,
+    NomeProduto VARCHAR(100) NOT NULL,
+    Preco DECIMAL(10,2) CHECK (Preco >= 0),
+    Estoque INT DEFAULT 0,
+    CategoriaID INT,
+    CONSTRAINT FK_Produtos_Categorias FOREIGN KEY (CategoriasID)
+        REFERENCES Categorias(CategoriasID)
 );
+GO
