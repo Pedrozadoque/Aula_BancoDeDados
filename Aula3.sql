@@ -22,3 +22,10 @@ GO
 SELECT NomeProduto, Preco 
 FROM Produtos
 ORDER BY Preco DESC;
+GO
+
+-- Ordenar em orde alfabética pelo nome
+SELECT NomeProduto, Preco 
+FROM Produtos
+ORDER BY NomeProduto ASC;
+GO
