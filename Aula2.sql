@@ -28,7 +28,7 @@ GO
 -- 3. Consultando os dados inseridos
 -- =======================================================================
 
--- Ver todas as catecorias
+-- Ver todas as categorias
 SELECT * FROM Categorias;
 
 -- Ver todos os produtos
