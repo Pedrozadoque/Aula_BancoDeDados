@@ -16,3 +16,9 @@ SELECT
 FROM Produtos P
 INNER JOIN Categorias C ON P.CategoriaID = C.CategoriaID;
 GO
+
+-- 2. ORDENAÇÃO DE DADOS (ORDER BY)
+-- Ordenar os produtos do mais caro para o mais barato
+SELECT NomeProduto, Preco 
+FROM Produtos
+ORDER BY Preco DESC;
